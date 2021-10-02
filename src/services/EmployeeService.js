@@ -30,4 +30,6 @@ export default class EmployeeService extends AbstractFirebase {
         .get()
         .then(this.extractData); 
     }
+
+   
 }

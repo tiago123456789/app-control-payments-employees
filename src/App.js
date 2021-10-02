@@ -9,7 +9,10 @@ import ListWorkOvertimeEmployee from "./pages/ListWorkOvertimeEmployee"
 import 'react-toastify/dist/ReactToastify.css';
 import NewVoucher from './pages/NewVoucher';
 import ListVoucherEmployee from './pages/ListVoucherEmployee';
-
+import NewServicePerPiece from "./pages/NewServicePerPiece"
+import ListServicePerPiece from "./pages/ListServicePerPiece"
+import NewSellOnCredit from "./pages/NewSellOnCredit"
+import ListSellOnCredit from "./pages/ListSellOnCredit"
 
 function App() {
   return (
@@ -17,17 +20,34 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/login" component={Login} />
-          <Route exact path="/employees" component={ListEmployee} />
-          <Route exact path="/employees/:employeeId/workOverTime" 
-          component={ListWorkOvertimeEmployee} />
-            <Route exact path="/employees/:employeeId/vouchers" 
-          component={ListVoucherEmployee} />
-          <Route exact path="/employees/:employeeId/workOverTime/new" 
-            component={NewWorkOvertimeEmployee} />
-          <Route exact path="/employees/:employeeId/vouchers/new" 
-            component={NewVoucher} />
-          <Route exact path="/employees/new" component={NewEmployee} />
 
+          <Route exact path="/employees" component={ListEmployee} />
+
+          <Route exact path="/employees/workOverTime/:employeeId"
+            component={ListWorkOvertimeEmployee} />
+
+          <Route exact path="/employees/vouchers/:employeeId"
+            component={ListVoucherEmployee} />
+
+          <Route exact path="/employees/workOverTime/:employeeId/new"
+            component={NewWorkOvertimeEmployee} />
+
+          <Route exact path="/employees/vouchers/:employeeId/new"
+            component={NewVoucher} />
+
+          <Route exact path="/employees/service-per-piece/:employeeId/new"
+            component={NewServicePerPiece} />
+
+          <Route exact path="/employees/service-per-piece/:employeeId"
+            component={ListServicePerPiece} />
+
+          <Route exact path="/employees/sell-on-credit/:employeeId/new"
+            component={NewSellOnCredit} />
+
+          <Route exact path="/employees/sell-on-credit/:employeeId"
+            component={ListSellOnCredit} />
+
+          <Route exact path="/employees/:employeeId/new" component={NewEmployee} />
           <Redirect to="/login" />
         </Switch>
       </BrowserRouter>
