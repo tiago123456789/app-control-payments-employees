@@ -94,8 +94,6 @@ function NewVoucher(props) {
               className="form-control" />
             <AlertErrorInput formik={formik} field="quantityPieces" />
           </FormGroup>
-
-      
           <br />
           <Button>Cadastrar</Button>&nbsp;
           <Link to={`/employees/service-per-piece/${getId()}`} className="btn btn-primary" style={{ margin: "5px 0px " }}>

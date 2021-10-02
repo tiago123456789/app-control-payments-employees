@@ -51,6 +51,9 @@ function ListEmployee(props) {
                  <Link to={`/employees/service-per-piece/${employee.id}`} className="btn btn-primary"  >
                   Serviços por peças
                  </Link>&nbsp;
+                 <Link to={`/employees/closure-month-payment/${employee.id}`} className="btn btn-primary"  >
+                  Fechamento do mês
+                 </Link>
                   <div style={{ "border": "1px solid black", margin: "10px 0px"}}></div>
             </>)
           })}

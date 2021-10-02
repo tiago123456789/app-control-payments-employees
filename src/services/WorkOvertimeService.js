@@ -28,7 +28,11 @@ export default class WorkOvertimeService extends AbstractFirebase {
     calculeValueMoney(time, valuePerHour) {
         const hourMinute = time.split(":")
         valuePerHour = parseFloat(valuePerHour)
-        let valueMoney = parseInt(hourMinute[0]) * valuePerHour;
+        let valueMoney = 0;
+        const isGreatherZeroHour = parseInt(hourMinute[0]) > 0
+        if (isGreatherZeroHour) {
+            valueMoney = parseInt(hourMinute[0]) * valuePerHour;
+        }
         const isGreatherZero = parseInt(hourMinute[1]) > 0
         if (isGreatherZero) {
             valueMoney += (valuePerHour / parseInt(hourMinute[1])) * parseInt(hourMinute[1])

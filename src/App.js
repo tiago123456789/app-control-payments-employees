@@ -13,6 +13,7 @@ import NewServicePerPiece from "./pages/NewServicePerPiece"
 import ListServicePerPiece from "./pages/ListServicePerPiece"
 import NewSellOnCredit from "./pages/NewSellOnCredit"
 import ListSellOnCredit from "./pages/ListSellOnCredit"
+import ListClosureMonthPayment from "./pages/ListClosureMonthPayment"
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
 
           <Route exact path="/employees/sell-on-credit/:employeeId"
             component={ListSellOnCredit} />
+
+          <Route exact path="/employees/closure-month-payment/:employeeId" 
+          component={ListClosureMonthPayment} />
 
           <Route exact path="/employees/new" component={NewEmployee} />
           <Redirect to="/login" />
