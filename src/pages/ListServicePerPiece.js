@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import Header from '../components/Header';
 import moment from "moment"
 import { formatCurrency } from "../utils/Format"
+import { Link } from 'react-router-dom';
 
 const servicePerPieceService = new ServicePerPieceService();
 const employeeService = new EmployeeService();
@@ -57,6 +58,9 @@ function ListServicePerPiece(props) {
       <br />
       <Container>
         <h1>Services por peça do funcionário(a) {employee.name} </h1>
+        <Link to={`/employees/service-per-piece/${getId()}/new`} className="btn btn-primary" style={{ margin: "5px 0px " }}>
+          Cadastrar serviço por peça
+        </Link>
         <div style={{ margin: "10px" }}>
             <label>Data inicial: </label>&nbsp;&nbsp;
             <input type="date" value={filters.dateInitial} onChange={(event) => changeFilterDate("dateInitial", event.target.value)} />&nbsp;

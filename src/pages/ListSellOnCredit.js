@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import Header from '../components/Header';
 import moment from "moment"
 import { formatCurrency } from "../utils/Format"
+import { Link } from 'react-router-dom';
 
 const sellOnCreditService = new SellOnCreditService();
 const employeeService = new EmployeeService();
@@ -57,6 +58,10 @@ function ListSellOnCredit(props) {
       <br />
       <Container>
         <h1>Lista de fiados do funcionário(a) {employee.name} </h1>
+        <Link to={`/employees/sell-on-credit/${getId()}/new`} className="btn btn-primary" style={{ margin: "5px 0px " }}>
+          Cadastrar fiado
+        </Link>
+        <br/>
         <div style={{ margin: "10px" }}>
             <label>Data inicial: </label>&nbsp;&nbsp;
             <input type="date" value={filters.dateInitial} onChange={(event) => changeFilterDate("dateInitial", event.target.value)} />&nbsp;

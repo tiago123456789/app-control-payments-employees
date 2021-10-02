@@ -33,27 +33,26 @@ function ListEmployee(props) {
         <Link to="/employees/new" className="btn btn-primary" style={{ margin: "5px 0px " }}>
           Novo Funcionário
         </Link>
-        <br/>
+        <br />
         <ListGroup>
           {employees.map(employee => {
-            return <ListGroupItem key={employee.id} onClick={() => props.history.push(`/employees/${employee.id}/workOverTime/new`)}
-              className="justify-content-between">
-              {employee.name}
-              <div style={{  padding: "10px" }}>
-                <Link to={`/employees/sell-on-credit/${employee.id}`} className="btn btn-primary" style={{ margin: "15px 0px" }} >
+            return (
+              <>
+                <h3 className="text-capitalize">{employee.name}</h3>
+                <Link to={`/employees/sell-on-credit/${employee.id}`} className="btn btn-primary"  >
                   Fiado
                  </Link>&nbsp;
-                 <Link to={`/employees/vouchers/${employee.id}`} className="btn btn-primary" style={{ margin: "15px 0px" }} >
+                 <Link to={`/employees/vouchers/${employee.id}`} className="btn btn-primary"  >
                   Vale
                  </Link>&nbsp;
-                 <Link to={`/employees/workOverTime/${employee.id}`} className="btn btn-primary" style={{ margin: "15px 0px" }} >
+                 <Link to={`/employees/workOverTime/${employee.id}`} className="btn btn-primary"  >
                   Horas extras
                  </Link>&nbsp;
-                 <Link to={`/employees/service-per-piece/${employee.id}`} className="btn btn-primary" style={{ margin: "15px 0px" }} >
+                 <Link to={`/employees/service-per-piece/${employee.id}`} className="btn btn-primary"  >
                   Serviços por peças
                  </Link>&nbsp;
-              </div>
-            </ListGroupItem>
+                  <div style={{ "border": "1px solid black", margin: "10px 0px"}}></div>
+            </>)
           })}
         </ListGroup>
       </Container>

@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import AlertErrorInput from "../components/AlertErrorInput"
 import Header from '../components/Header';
 import moment from "moment";
+import { Link } from 'react-router-dom';
 
 const workOvertimeService = new WorkOvertimeService();
 const employeeService = new EmployeeService();
@@ -35,11 +36,14 @@ function NewWorkOvertimeEmployee(props) {
       })
     },
   });
+  
+  const getId = () => {
+    return props.match.params.employeeId;
+  }
 
   const getEmployee = async () => {
-    const id = props.match.params.employeeId;
-    setId(id);
-    const employee = await employeeService.getById(id)
+    setId(getId());
+    const employee = await employeeService.getById(getId())
     setEmployee(employee)
   }
 
@@ -67,7 +71,11 @@ function NewWorkOvertimeEmployee(props) {
             <AlertErrorInput formik={formik} field="time" />
           </FormGroup>
           <br />
-          <Button>Cadastrar</Button>
+          <Button>Cadastrar</Button>&nbsp;
+          <Link to={`/employees/workOverTime/${getId()}`} className="btn btn-primary" style={{ margin: "5px 0px " }}>
+            Voltar
+        </Link>
+          <br />
         </Form>
       </Container>
     </>

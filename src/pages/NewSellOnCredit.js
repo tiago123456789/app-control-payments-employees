@@ -9,6 +9,7 @@ import AlertErrorInput from "../components/AlertErrorInput"
 import Header from '../components/Header';
 import SellOnCreditService from '../services/SellOnCreditService';
 import moment from "moment"
+import { Link } from 'react-router-dom';
 
 const employeeService = new EmployeeService();
 const sellOnCreditService = new SellOnCreditService();
@@ -40,9 +41,12 @@ function NewSellOnCredit(props) {
     },
   });
 
+  const getId = () => {
+    return props.match.params.employeeId;
+  }
+
   const getEmployee = async () => {
-    const id = props.match.params.employeeId;
-    const employee = await employeeService.getById(id)
+    const employee = await employeeService.getById(getId())
     setEmployee(employee)
   }
 
@@ -79,7 +83,10 @@ function NewSellOnCredit(props) {
             <AlertErrorInput formik={formik} field="value" />
           </FormGroup>
           <br />
-          <Button>Cadastrar</Button>
+          <Button>Cadastrar</Button>&nbsp;
+          <Link to={`/employees/sell-on-credit/${getId()}`} className="btn btn-primary" style={{ margin: "5px 0px " }}>
+            Voltar
+          </Link>
         </Form>
       </Container>
     </>

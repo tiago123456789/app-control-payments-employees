@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import Header from '../components/Header';
 import moment from "moment"
 import { formatCurrency } from "../utils/Format"
+import { Link } from 'react-router-dom';
 
 const voucherService = new VoucherService();
 const employeeService = new EmployeeService();
@@ -57,6 +58,10 @@ function ListVoucherEmployee(props) {
       <br />
       <Container>
         <h1>Vales do funcionário(a) {employee.name} </h1>
+        <Link to={`/employees/vouchers/${getId()}/new`} className="btn btn-primary" style={{ margin: "5px 0px " }}>
+          Cadastrar vale
+        </Link>
+        <br/>
         <div style={{ margin: "10px" }}>
             <label>Data inicial: </label>&nbsp;&nbsp;
             <input type="date" value={filters.dateInitial} onChange={(event) => changeFilterDate("dateInitial", event.target.value)} />&nbsp;

@@ -10,6 +10,7 @@ import Header from '../components/Header';
 import ServicePerPieceService from '../services/ServicePerPieceService';
 import moment from "moment"
 import RegisterServicePerPiece from '../validations/RegisterServicePerPiece';
+import { Link } from 'react-router-dom';
 
 const employeeService = new EmployeeService();
 const servicePerPieceService = new ServicePerPieceService();
@@ -42,9 +43,12 @@ function NewVoucher(props) {
     },
   });
 
+  const getId = () => {
+    return  props.match.params.employeeId;
+  }
+
   const getEmployee = async () => {
-    const id = props.match.params.employeeId;
-    const employee = await employeeService.getById(id)
+    const employee = await employeeService.getById(getId())
     setEmployee(employee)
   }
 
@@ -93,7 +97,10 @@ function NewVoucher(props) {
 
       
           <br />
-          <Button>Cadastrar</Button>
+          <Button>Cadastrar</Button>&nbsp;
+          <Link to={`/employees/service-per-piece/${getId()}`} className="btn btn-primary" style={{ margin: "5px 0px " }}>
+            Voltar
+          </Link>
         </Form>
       </Container>
     </>

@@ -11,6 +11,7 @@ import RegisterVoucherEmployee from '../validations/RegisterVoucherEmployee';
 import VoucherService from '../services/VoucherService';
 import { mockComponent } from 'react-dom/cjs/react-dom-test-utils.production.min';
 import moment from "moment"
+import { Link } from 'react-router-dom';
 
 const employeeService = new EmployeeService();
 const voucherService = new VoucherService()
@@ -38,9 +39,12 @@ function NewVoucher(props) {
     },
   });
 
+  const getId = () => {
+    return props.match.params.employeeId;
+  }
+
   const getEmployee = async () => {
-    const id = props.match.params.employeeId;
-    const employee = await employeeService.getById(id)
+    const employee = await employeeService.getById(getId())
     setEmployee(employee)
   }
 
@@ -77,7 +81,10 @@ function NewVoucher(props) {
             <AlertErrorInput formik={formik} field="value" />
           </FormGroup>
           <br />
-          <Button>Cadastrar</Button>
+          <Button>Cadastrar</Button>&nbsp;
+          <Link to={`/employees/vouchers/${getId()}`} className="btn btn-primary" style={{ margin: "5px 0px " }}>
+            Voltar
+          </Link>
         </Form>
       </Container>
     </>

@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import Header from '../components/Header';
 import moment from "moment"
 import { formatCurrency } from "../utils/Format"
+import { Link } from 'react-router-dom';
 
 const workOvertimeService = new WorkOvertimeService();
 const employeeService = new EmployeeService();
@@ -58,6 +59,10 @@ function ListWorkOvertimeEmployee(props) {
       <br />
       <Container>
         <h1>Horas extras do funcionário(a) {employee.name} </h1>
+        <Link to={`/employees/workOverTime/${getId()}/new`} className="btn btn-primary" style={{ margin: "5px 0px " }}>
+          Cadastrar hora extra
+        </Link>
+        <br/>
         <div style={{ margin: "10px" }}>
             <label>Data inicial: </label>&nbsp;&nbsp;
             <input type="date" value={filters.dateInitial} onChange={(event) => changeFilterDate("dateInitial", event.target.value)} />&nbsp;

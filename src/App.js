@@ -47,7 +47,7 @@ function App() {
           <Route exact path="/employees/sell-on-credit/:employeeId"
             component={ListSellOnCredit} />
 
-          <Route exact path="/employees/:employeeId/new" component={NewEmployee} />
+          <Route exact path="/employees/new" component={NewEmployee} />
           <Redirect to="/login" />
         </Switch>
       </BrowserRouter>
