@@ -14,6 +14,7 @@ import ListServicePerPiece from "./pages/ListServicePerPiece"
 import NewSellOnCredit from "./pages/NewSellOnCredit"
 import ListSellOnCredit from "./pages/ListSellOnCredit"
 import ListClosureMonthPayment from "./pages/ListClosureMonthPayment"
+import PrivateRoute from "./components/Auth/PrivateRoute"
 
 function App() {
   return (
@@ -22,36 +23,37 @@ function App() {
         <Switch>
           <Route exact path="/login" component={Login} />
 
-          <Route exact path="/employees" component={ListEmployee} />
 
-          <Route exact path="/employees/workOverTime/:employeeId"
+          <PrivateRoute exact path="/employees" component={ListEmployee} />
+
+          <PrivateRoute exact path="/employees/workOverTime/:employeeId"
             component={ListWorkOvertimeEmployee} />
 
-          <Route exact path="/employees/vouchers/:employeeId"
+          <PrivateRoute exact path="/employees/vouchers/:employeeId"
             component={ListVoucherEmployee} />
 
-          <Route exact path="/employees/workOverTime/:employeeId/new"
+          <PrivateRoute exact path="/employees/workOverTime/:employeeId/new"
             component={NewWorkOvertimeEmployee} />
 
-          <Route exact path="/employees/vouchers/:employeeId/new"
+          <PrivateRoute exact path="/employees/vouchers/:employeeId/new"
             component={NewVoucher} />
 
-          <Route exact path="/employees/service-per-piece/:employeeId/new"
+          <PrivateRoute exact path="/employees/service-per-piece/:employeeId/new"
             component={NewServicePerPiece} />
 
-          <Route exact path="/employees/service-per-piece/:employeeId"
+          <PrivateRoute exact path="/employees/service-per-piece/:employeeId"
             component={ListServicePerPiece} />
 
-          <Route exact path="/employees/sell-on-credit/:employeeId/new"
+          <PrivateRoute exact path="/employees/sell-on-credit/:employeeId/new"
             component={NewSellOnCredit} />
 
-          <Route exact path="/employees/sell-on-credit/:employeeId"
+          <PrivateRoute exact path="/employees/sell-on-credit/:employeeId"
             component={ListSellOnCredit} />
 
-          <Route exact path="/employees/closure-month-payment/:employeeId" 
+          <PrivateRoute exact path="/employees/closure-month-payment/:employeeId" 
           component={ListClosureMonthPayment} />
 
-          <Route exact path="/employees/new" component={NewEmployee} />
+          <PrivateRoute exact path="/employees/new" component={NewEmployee} />
           <Redirect to="/login" />
         </Switch>
       </BrowserRouter>

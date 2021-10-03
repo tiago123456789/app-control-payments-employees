@@ -26,7 +26,6 @@ function ListWorkOvertimeEmployee(props) {
 
   const getWorkOvertimeTheEmployee = async () => {
     const register = await workOvertimeService.getByEmployeeId(getId(), filters)
-    console.log(register);
     setWorkOverTimes(register)
   }
 
