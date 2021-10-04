@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 export default Yup.object().shape({
-    time: Yup.string()
+    name: Yup.string()
         .min(2, 'O campo é obrigatório.')
         .required('O campo é obrigatório.'),
     cellphone: Yup.string()

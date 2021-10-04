@@ -69,16 +69,13 @@ function NewEmployee() {
             <Label for="valueOvertime">Valor da hora extra</Label>
             <InputMask mask="99.99"
               id="valuePerHour" name="valuePerHour"
-
               onChange={formik.handleChange}
               value={formik.values.valuePerHour}
               className="form-control" />
             <AlertErrorInput formik={formik} field="valuePerHour" />
-
-
           </FormGroup>
           <br />
-          <Button>Cadastrar</Button>
+          <Button type="submit">Cadastrar</Button>
         </Form>
       </Container>
     </>
