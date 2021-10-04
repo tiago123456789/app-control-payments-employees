@@ -1,4 +1,3 @@
-var CACHE_NAME = 'todo-app';
 
 self.addEventListener('install', function (event) {});
 
