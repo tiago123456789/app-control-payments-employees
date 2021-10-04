@@ -65,6 +65,9 @@ function ListSellOnCredit(props) {
         <div style={{ margin: "10px" }}>
             <label>Data inicial: </label>&nbsp;&nbsp;
             <input type="date" value={filters.dateInitial} onChange={(event) => changeFilterDate("dateInitial", event.target.value)} />&nbsp;
+            <br/>
+            <br/>
+
             <label>Data final: </label>&nbsp;
             <input type="date" value={filters.dateFinal} onChange={(event) => changeFilterDate("dateFinal", event.target.value)} />
         </div>

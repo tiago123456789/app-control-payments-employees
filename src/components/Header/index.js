@@ -17,7 +17,7 @@ export default (props) => {
 
   return (
     <div>
-      <Navbar color="dark" light>
+      <Navbar color="dark" light style={{ "padding": "15px 0px" }}>
         <NavbarBrand href="/employees" className="mr-auto text-white" style={{ paddingLeft: "10px" }}>Controle de pagamento</NavbarBrand>
         { authService.isAuthenticated() &&
                 <Button onClick={() => logout()} style={{ margin: "0px 10px" }}>Sair</Button>

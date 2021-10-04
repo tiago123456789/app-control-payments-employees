@@ -1,5 +1,11 @@
+const CACHE_NAME = "control_payment"
 
-self.addEventListener('install', function (event) {});
+self.addEventListener('install', function (event) {
+
+});
+
+self.addEventListener("fetch", function (event) {
+});
 
 // Delete files cached when new service worker is installed
 self.addEventListener('activate', function (event) {
